@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:GroupBox style="height: 430px; width: 225px;">
+        <ui:ProgressBar title="Experience" name="racetrack-level-progress" low-value="0" style="background-color: rgba(255, 255, 255, 255);" />
+    </ui:GroupBox>
+</ui:UXML>

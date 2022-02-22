@@ -24,7 +24,7 @@ public class Pokedex_ScriptableObject : ScriptableObject
 
     public Sprite GetSprite(int index) { return pokemon_sprites[index]; }
 
-    public PokemonData GetPokemon(int index) { return pokemon[index]; }
+    public PokemonData GetPokemon(int index) { return pokemon[Mathf.Min(index, pokemon.Count - 1)]; }
 
 
     public List<PokemonData> pokemon;

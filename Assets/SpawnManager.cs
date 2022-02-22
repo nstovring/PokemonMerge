@@ -12,8 +12,8 @@ public class SpawnManager : MonoBehaviour
     public List<Collider2D> Colliders;
     private List<Sprite> SpawnList;
 
-    public int spawnLevel = 0;
-    public int unlockedLevel = 0;
+    
+
     public float spawnRate = 2f;
     private float currentTime = 0;
 
@@ -30,22 +30,31 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    internal void LevelUp()
+
+    public Pokedex_ScriptableObject.PokemonData GetMaxRankPokemon()
     {
-        if(spawnLevel + 2 < Pokedex.pokemon.Count)
-            spawnLevel++;
+        Pokedex_ScriptableObject.PokemonData p = Pokedex.GetPokemon(GameManager.Instance.current_max_level);
+        return p;   
+    }
+    public Pokedex_ScriptableObject.PokemonData GetMaxRankPlus1Pokemon()
+    {
+        Pokedex_ScriptableObject.PokemonData p = Pokedex.GetPokemon(GameManager.Instance.current_max_level + 1);
+        return p;
     }
 
-    private void Start()
+    public Pokedex_ScriptableObject.PokemonData GetBuyablePokemon()
     {
-        
+        int index = GameManager.Instance.current_max_level / 2;
+        Pokedex_ScriptableObject.PokemonData p = Pokedex.GetPokemon(index);
+        return p;
     }
 
-    private void Update()
+    public Pokedex_ScriptableObject.PokemonData GetBuyablePokemon(out int index)
     {
-
+        index = GameManager.Instance.current_max_level / 2;
+        Pokedex_ScriptableObject.PokemonData p = Pokedex.GetPokemon(index);
+        return p;
     }
-
     public void SpawnPokemon()
     {
         SpawnField emptySpot;
@@ -87,7 +96,7 @@ public class SpawnManager : MonoBehaviour
     void FillSpot(SpawnField spot)
     {
         //For now get random sprite and assign
-        int spriteIndex = Random.Range(0,spawnLevel);
+        int spriteIndex = Random.Range(0,6);
 
         Pokedex_ScriptableObject.PokemonData data = Pokedex.GetPokemon(spriteIndex);
 
@@ -98,7 +107,7 @@ public class SpawnManager : MonoBehaviour
         spot.CreatePokemon(data);
     }
 
-    public void FillSpot(SpawnField spot, int pokemonIndex)
+    public Pokemon FillSpot(SpawnField spot, int pokemonIndex)
     {
         Pokedex_ScriptableObject.PokemonData data = Pokedex.GetPokemon(pokemonIndex);
 
@@ -106,7 +115,7 @@ public class SpawnManager : MonoBehaviour
         if (data == null)
             Debug.LogError("No pokemon assigned");
 
-        spot.CreatePokemon(data);
+        return spot.CreatePokemon(data);
     }
 
     bool Timer()
@@ -119,6 +128,7 @@ public class SpawnManager : MonoBehaviour
         return false;
     }
 
+
     public Pokemon Merge(Pokemon a, Pokemon b, SpawnField s_field)
     {
         Debug.Log("Pokemon Index: " + a.pokemon_index);
@@ -129,7 +139,7 @@ public class SpawnManager : MonoBehaviour
         Destroy(b.gameObject);
 
         Debug.Log("Merging Pokemon Index: " + newIndex);
-        FillSpot(s_field, newIndex);
-        return null;
+
+        return FillSpot(s_field, newIndex);
     }
 }

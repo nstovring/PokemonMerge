@@ -72,6 +72,8 @@ public class RaceTrack : MonoBehaviour
     public int scoring_field_curve_index;
 
     public float track_placement_range = 0.5f;
+    public int flight_path_space = 1;
+    public int parking_space_amount = 6;
 
     private void Awake()
     {
@@ -229,7 +231,7 @@ public class RaceTrack : MonoBehaviour
             for (int i = 1; i <= lineSteps; i++)
             {
                 Gizmos.color = Color.cyan;
-                Vector3 velocity = curve.GetVelocity(i / (float)lineSteps).normalized;
+                Vector3 velocity = curve.GetVelocity(i / (float)lineSteps).normalized * 0.5f;
                 Gizmos.DrawRay(lineStart, velocity);
 
                 Gizmos.color = Color.green;
@@ -243,6 +245,7 @@ public class RaceTrack : MonoBehaviour
         DrawLandingStrip();
         DrawScoringField();
     }
+
 
     [ContextMenu("Reverse Racetrack")]
     public void ReverseRaceTrack()
@@ -262,7 +265,7 @@ public class RaceTrack : MonoBehaviour
     {
         BezierCurve curve = curves[landing_strip_curve_index];
         Vector3 lineStart = curve.GetPoint(0f);
-        for (int i = 1; i <= lineSteps; i++)
+        for (int i = 1; i <= flight_path_space; i++)
         {
             Gizmos.color = Color.blue;
             Vector3 lineLeft = lineStart - Vector3.left * 0.1f;

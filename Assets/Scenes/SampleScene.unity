@@ -1321,6 +1321,54 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &438758643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 438758645}
+  - component: {fileID: 438758644}
+  m_Layer: 5
+  m_Name: UIDocument
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &438758644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438758643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 28acf21c2db18f145b2bdd74ac46861d, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 37712df2b942d334d99a1c1d4f658c0d, type: 3}
+  m_SortingOrder: 0
+--- !u!4 &438758645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438758643}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,7 +1910,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &929898583
 GameObject:
@@ -1959,7 +2007,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1019738869
 GameObject:
@@ -1996,7 +2044,7 @@ Transform:
   - {fileID: 30282825}
   - {fileID: 1166824199}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1023622170
 GameObject:
@@ -2035,7 +2083,7 @@ Transform:
   - {fileID: 1122790297}
   - {fileID: 2108856366}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1122790295
 GameObject:
@@ -2257,7 +2305,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1245877466
 GameObject:
@@ -2501,7 +2549,9 @@ MonoBehaviour:
   m_UiManager: {fileID: 0}
   m_racetrack: {fileID: 0}
   Score: 2000
-  Base_Speed: 0.5
+  cur_max_exp: 100
+  Experience_points: 0
+  Base_Speed: 1
 --- !u!4 &1334081270
 Transform:
   m_ObjectHideFlags: 0
@@ -2918,7 +2968,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1762156458
 GameObject:
@@ -3136,6 +3186,7 @@ MonoBehaviour:
   m_scoretext: {fileID: 1347580645}
   m_buyText: {fileID: 792910338}
   m_buy_price_Text: {fileID: 45481964}
+  scene_ui_document: {fileID: 438758644}
 --- !u!4 &1957698357
 Transform:
   m_ObjectHideFlags: 0
@@ -3199,6 +3250,8 @@ MonoBehaviour:
   landing_strip_curve_index: 4
   scoring_field_curve_index: 0
   track_placement_range: 0.5
+  flight_path_space: 1
+  parking_space_amount: 6
   lineSteps: 10
 --- !u!4 &1988221262
 Transform:
@@ -3221,7 +3274,7 @@ Transform:
   - {fileID: 330959812}
   - {fileID: 1245877467}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2108856364
 GameObject:
@@ -3281,7 +3334,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8418350433332655961, guid: 9b9f7f89b2aeff14b8ee47e55c030c00, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8418350433332655961, guid: 9b9f7f89b2aeff14b8ee47e55c030c00, type: 3}
       propertyPath: m_LocalPosition.x

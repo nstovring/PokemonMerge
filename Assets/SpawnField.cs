@@ -23,7 +23,7 @@ public class SpawnField : MonoBehaviour
         m_spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void CreatePokemon(Pokedex_ScriptableObject.PokemonData data)
+    public Pokemon CreatePokemon(Pokedex_ScriptableObject.PokemonData data)
     {
         m_pokemon = Instantiate(SpawnManager.Instance.Pokemon_prefab, transform.position, Quaternion.identity).GetComponent<Pokemon>();
         m_pokemon.SetSprite(data.m_sprite);
@@ -33,6 +33,8 @@ public class SpawnField : MonoBehaviour
         
         m_pokemon.m_spawnField = this;
         is_Occupied = true;
+
+        return m_pokemon;
     }
 
     public void AddPokemonToField(Pokemon pokemon)
